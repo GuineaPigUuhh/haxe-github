@@ -1,4 +1,4 @@
-package api;
+package hxgithub;
 
 import haxe.Json;
 import haxe.Http;
