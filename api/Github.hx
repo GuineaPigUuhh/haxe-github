@@ -51,6 +51,57 @@ class Github {
     }
 
     /**
+     * search a Topic
+     * @param topic 
+     */
+    public static function searchTopic(topic:String) {
+        if(topic != '')
+            return githubData('https://api.github.com/search/topics?q=${topic}');
+        return '';
+    }
+
+    /**
+     * search a Issue
+     * @param issue 
+     */
+    public static function searchIssue(issue:String) {
+        if(issue != '')
+            return githubData('https://api.github.com/search/issues?q=$issue');
+        return '';
+    }
+
+    /**
+     * search a Code
+     * @param code 
+     */
+    public static function searchCode(code:String) {
+        if(code != '')
+            return githubData('https://api.github.com/search/code?q=$code');
+        return '';
+    }
+
+    /**
+     * search Commit
+     * @param commit 
+     */
+    public static function searchCommit(commit:String) {
+        if(commit != '')
+            return githubData('https://api.github.com/search/commits?q=$commit');
+        return '';
+    }
+
+    /**
+     * search Label
+     * @param label 
+     * @param id 
+     */
+    public static function searchLabel(label:String, id:String) {
+        if(label != '')
+            return githubData('https://api.github.com/search/labels?q=${label}&repository_id=${id}');
+        return '';
+    }
+    
+    /**
      * is used to give a request to github and returns a string
      * @param url 
      */
