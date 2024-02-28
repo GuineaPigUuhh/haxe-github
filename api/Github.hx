@@ -14,7 +14,7 @@ class Github {
      * @param user 
      */
     public static function getUser(user:String) {
-        if(user != null || user != '')
+        if(user != '')
             return githubData('https://api.github.com/users/${user}');
         return '';
     }
@@ -25,8 +25,28 @@ class Github {
      * @param repo 
      */
     public static function getRepo(user:String, repo:String) {
-        if((user != null || user != '') && (repo != null || repo != ''))
-            return githubData('https://api.github.com/users/${user}/repos/${repo}');
+        if(user != '' && repo != '')
+            return githubData('https://api.github.com/repos/${user}/${repo}');
+        return '';
+    }
+
+    /**
+     * search a User
+     * @param user 
+     */
+    public static function searchUser(user:String) {
+        if(user != '')
+            return githubData('https://api.github.com/search/users?q=${user}');
+        return '';
+    }
+
+    /**
+     * search a Repository
+     * @param repo 
+     */
+    public static function searchRepo(repo:String) {
+        if(repo != '')
+            return githubData('https://api.github.com/search/repositories?q=${repo}');
         return '';
     }
 

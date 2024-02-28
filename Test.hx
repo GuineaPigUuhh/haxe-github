@@ -8,7 +8,7 @@ class Test
 {
     public static function main()
     {
-        var data = Json.parse(Github.getUser('NineFds'));
+        var data = Json.parse(Github.searchRepo('sex'));
         trace(data);
     }    
 }
