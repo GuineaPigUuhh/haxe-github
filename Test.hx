@@ -8,10 +8,7 @@ class Test
 {
     public static function main()
     {
-        var data:Array<Dynamic> = Json.parse(Github.githubData('https://api.github.com/users/GuineaPigUuhh/followers'));
-        for (i in data)
-        {
-            trace('${i.login}, ${i.html_url}');
-        }
+        var data = Json.parse(Github.getUser('NineFds'));
+        trace(data);
     }    
 }
