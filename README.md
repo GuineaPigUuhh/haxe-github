@@ -4,25 +4,16 @@ Haxe functions to use the [Github API](https://docs.github.com/pt/rest?apiVersio
 ### Installation
 for now it's just git, but maybe I'll add it to Haxelib
 ```bash
-haxelib git hxgithub-api https://github.com/GuineaPigUuhh/hxgithub-api.git
+haxelib git haxe-github https://github.com/GuineaPigUuhh/haxe-github.git
 ```
 
 ### Usage Exemple
 ```haxe
 import haxegithub.Github;
 
-trace(Github.getUser('NineFds'));
-// RESULT (Remembering that it is just a part of the JSON so that the README does not get too big)
-/*
-    {
-        "login": "NineFds",
-        "avatar_url": "https://avatars.githubusercontent.com/u/160635502?v=4",
-        "gravatar_id": "",
-        "name": null,
-        "company": null,
-        "blog": "",
-        "followers": 1,
-        "following": 2
-    }
-*/
+trace(Github.getUser('GuineaPigUuhh'));
+//RESULT: https://api.github.com/users/GuineaPigUuhh
+
+trace(Github.getRepo('GuineaPigUuhh', 'haxe-github'));
+// RESULT: https://api.github.com/repos/GuineaPigUuhh/haxe-github
 ```
