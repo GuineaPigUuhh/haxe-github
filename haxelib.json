@@ -1,6 +1,6 @@
 {
-    "name": "hxgithub-api",
-    "url" : "https://github.com/GuineaPigUuhh/hxgithub-api",
+    "name": "haxe-github",
+    "url" : "https://github.com/GuineaPigUuhh/haxe-github",
     "license": "MIT",
     "tags": ["api","github-api"],
     "description": "haxe functions to use the Github API.",
