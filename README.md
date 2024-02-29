@@ -12,7 +12,7 @@ haxelib git haxe-github https://github.com/GuineaPigUuhh/haxe-github.git
 import haxegithub.Github;
 
 trace(Github.getUser('GuineaPigUuhh'));
-//RESULT: https://api.github.com/users/GuineaPigUuhh
+// RESULT: https://api.github.com/users/GuineaPigUuhh
 
 trace(Github.getRepo('GuineaPigUuhh', 'haxe-github'));
 // RESULT: https://api.github.com/repos/GuineaPigUuhh/haxe-github
