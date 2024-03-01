@@ -104,7 +104,7 @@ class Github {
         api.setHeader("User-Agent", "request");
 
         api.onData = function (data) current_data = data;
-        api.onError = function (error) throw error;
+        api.onError = function (error) trace(error);
 
         api.request();
         return current_data;
@@ -120,7 +120,7 @@ class Github {
         api.setHeader("User-Agent", "request");
 
         api.onBytes = function (data) current_data = data;
-        api.onError = function (error) throw error;
+        api.onError = function (error) trace(error);
 
         api.request();
         return current_data;
