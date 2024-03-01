@@ -8,6 +8,7 @@ import haxegithub.types.*;
  * Haxe Github API
  * 
  * Library by GuineaPigUuhh
+ * 
  */
 class Github {
     /**
@@ -15,8 +16,7 @@ class Github {
      * @param user 
      */
     public static function getUser(user:String) 
-        return githubData('https://api.github.com/users/${user}');
-    
+        return githubParse('https://api.github.com/users/${user}');
 
     /**
      * get User Repository JSON
@@ -78,25 +78,48 @@ class Github {
         return githubParse('https://api.github.com/search/labels?q=${label}&repository_id=${id}');
 
     /**
+     * get a file from a repository
+     * @param user 
+     * @param repo 
+     * @param branch 
+     * @param file 
+     */
+    public static function getContent(user:String, repo:String, branch:String, file:String)
+        return githubRequest('https://raw.githubusercontent.com/$user/$repo/$branch/$file');
+    
+    /**
      * easy Parse Github JSON
      * @param url 
      */
     public static function githubParse(url:String)
-        return Json.parse(githubData(url));
+        return Json.parse(githubRequest(url));
     
     /**
      * is used to give a request to github and returns a JSON string
      * @param url 
      */
-    public static function githubData(url:String) {
+    public static function githubRequest(url:String) {
         var current_data = null;
         var api = new Http(url);
         api.setHeader("User-Agent", "request");
 
-        api.onData = function (data) {
-            if(current_data == null)
-                current_data = data;
-        }
+        api.onData = function (data) current_data = data;
+        api.onError = function (error) throw error;
+
+        api.request();
+        return current_data;
+    }
+
+    /**
+     * is used to give a request to github and returns the Bytes
+     * @param url 
+     */
+    public static function githubRequestBytes(url:String) {
+        var current_data = null;
+        var api = new Http(url);
+        api.setHeader("User-Agent", "request");
+
+        api.onBytes = function (data) current_data = data;
         api.onError = function (error) throw error;
 
         api.request();
