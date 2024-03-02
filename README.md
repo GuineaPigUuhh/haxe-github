@@ -17,3 +17,8 @@ trace(Github.getUser('GuineaPigUuhh'));
 trace(Github.getRepo('GuineaPigUuhh', 'haxe-github'));
 // RESULT: https://api.github.com/repos/GuineaPigUuhh/haxe-github
 ```
+
+Other Usage Exemple:
+- [HaxeFlixel](https://github.com/GuineaPigUuhh/HaxeFlixel-Github-Exemple)
+
+![HaxeFlixelImg](https://raw.githubusercontent.com/GuineaPigUuhh/HaxeFlixel-Github-Exemple/main/img/e.PNG)
