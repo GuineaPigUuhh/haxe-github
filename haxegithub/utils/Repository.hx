@@ -8,7 +8,7 @@ class Repository {
 	 * @param user 
 	 * @param repo 
 	 */
-	public static function get(user:String, repo:String) {
+	public static function get(user:String, repo:String):Dynamic {
 		return Request.easyparse('repos/$user/$repo');
 	}
 
@@ -17,7 +17,7 @@ class Repository {
 	 * @param user 
 	 * @param repo 
 	 */
-	public static function getContributors(user:String, repo:String) {
+	public static function getContributors(user:String, repo:String):Dynamic {
 		return Request.easyparse('repos/$user/$repo/collaborators');
 	}
 }

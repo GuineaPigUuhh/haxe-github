@@ -19,7 +19,7 @@ class Request {
 	 * @return String
 	 * @return return request('https://api.github.com/$more')
 	 */
-	public static function api_request(more:String)
+	public static function api_request(more:String):String
 		return request('https://api.github.com/$more');
 
 	/**
@@ -27,7 +27,7 @@ class Request {
 	 * @param more 
 	 * @return String
 	 */
-	public static function api_requestBytes(more:String)
+	public static function api_requestBytes(more:String):haxe.io.Bytes
 		return requestBytes('https://api.github.com/$more');
 
 	/**
@@ -35,7 +35,7 @@ class Request {
 	 * @param url 
 	 * @return String
 	 */
-	public static function request(url:String) {
+	public static function request(url:String):String {
 		var current_data = null;
 		var api = new Http(url);
 		api.setHeader("User-Agent", "request");
@@ -52,7 +52,7 @@ class Request {
 	 * @param url 
 	 * @return haxe.io.Bytes
 	 */
-	public static function requestBytes(url:String) {
+	public static function requestBytes(url:String):haxe.io.Bytes {
 		var current_data = null;
 		var api = new Http(url);
 		api.setHeader("User-Agent", "request");

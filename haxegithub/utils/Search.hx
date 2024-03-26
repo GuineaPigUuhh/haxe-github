@@ -18,13 +18,13 @@ class Search {
 	 * @param name 
 	 * @param type 
 	 */
-	public static function search(name:String, ?type:SearchTypes = REPOSITORY) {
+	public static function search(name:String, ?type:SearchTypes = REPOSITORY):Dynamic {
 		var urlType = switch (type) {
 			case USER:
 				'search/users?q=$name';
 			case REPOSITORY:
 				'search/repositories?q=$name';
 		}
-		return Request.api_request(urlType);
+		return Request.easyparse(urlType);
 	}
 }

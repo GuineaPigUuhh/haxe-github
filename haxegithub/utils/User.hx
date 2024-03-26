@@ -7,7 +7,7 @@ class User {
 	 * Return the User JSON
 	 * @param user 
 	 */
-	public static function get(user:String) {
+	public static function get(user:String):Dynamic {
 		return Request.easyparse('users/$user');
 	}
 
@@ -15,7 +15,7 @@ class User {
 	 * Return the User Followers JSON
 	 * @param user 
 	 */
-	public static function getFollowers(user:String) {
+	public static function getFollowers(user:String):Dynamic {
 		return Request.easyparse('users/$user/followers');
 	}
 
@@ -23,7 +23,7 @@ class User {
 	 * Return the User Following Json
 	 * @param user 
 	 */
-	public static function getFollowing(user:String) {
+	public static function getFollowing(user:String):Dynamic {
 		return Request.easyparse('users/$user/following');
 	}
 
@@ -31,7 +31,7 @@ class User {
 	 * Return the Repositorys from the User
 	 * @param user 
 	 */
-	public static function getRepositorys(user:String) {
+	public static function getRepositorys(user:String):Dynamic {
 		return Request.easyparse('users/$user/repos');
 	}
 
@@ -39,7 +39,7 @@ class User {
 	 * Return the Gits from the user
 	 * @param user 
 	 */
-	public static function getGists(user:String) {
+	public static function getGists(user:String):Dynamic {
 		return Request.easyparse('users/$user/gists');
 	}
 
@@ -47,7 +47,7 @@ class User {
 	 * Return the Starred Repositorys from the User
 	 * @param user 
 	 */
-	public static function getStarred(user:String) {
+	public static function getStarred(user:String):Dynamic {
 		return Request.easyparse('users/$user/starred');
 	}
 }
