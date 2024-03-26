@@ -1,15 +1,20 @@
 package haxegithub.utils;
 
-import haxegithub.Request;
+import haxe.macro.Expr.Case;
 
-/**
- * TODO: add more types to search
- */
 enum SearchTypes {
 	USER;
 	REPOSITORY;
+	CODE;
+	COMMIT;
+	ISSUE;
+	LABEL;
+	TOPIC;
 }
 
+/**
+ * Github Search Util
+ */
 class Search {
 	/**
 	 * TODO: add support for Specifications
@@ -21,10 +26,23 @@ class Search {
 	public static function search(name:String, ?type:SearchTypes = REPOSITORY):Dynamic {
 		var urlType = switch (type) {
 			case USER:
-				'search/users?q=$name';
+				'users';
 			case REPOSITORY:
-				'search/repositories?q=$name';
+				'repositories';
+			case CODE:
+				'code';
+			case COMMIT:
+				'commits';
+			case ISSUE:
+				'issues';
+			case LABEL:
+				'labels';
+			case TOPIC:
+				'topics';
 		}
-		return Request.easyparse(urlType);
+
+		var api = new GithubAPI();
+		api.request('search/$urlType?q=$name');
+		return api.json;
 	}
 }

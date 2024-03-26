@@ -1,14 +1,17 @@
 package haxegithub.utils;
 
-import haxegithub.Request;
-
+/**
+ * Github User Util
+ */
 class User {
 	/**
 	 * Return the User JSON
 	 * @param user 
 	 */
 	public static function get(user:String):Dynamic {
-		return Request.easyparse('users/$user');
+		var api = new GithubAPI();
+		api.request('users/$user');
+		return api.json;
 	}
 
 	/**
@@ -16,7 +19,9 @@ class User {
 	 * @param user 
 	 */
 	public static function getFollowers(user:String):Dynamic {
-		return Request.easyparse('users/$user/followers');
+		var api = new GithubAPI();
+		api.request('users/$user/followers');
+		return api.json;
 	}
 
 	/**
@@ -24,7 +29,9 @@ class User {
 	 * @param user 
 	 */
 	public static function getFollowing(user:String):Dynamic {
-		return Request.easyparse('users/$user/following');
+		var api = new GithubAPI();
+		api.request('users/$user/following');
+		return api.json;
 	}
 
 	/**
@@ -32,7 +39,9 @@ class User {
 	 * @param user 
 	 */
 	public static function getRepositorys(user:String):Dynamic {
-		return Request.easyparse('users/$user/repos');
+		var api = new GithubAPI();
+		api.request('users/$user/repo');
+		return api.json;
 	}
 
 	/**
@@ -40,7 +49,9 @@ class User {
 	 * @param user 
 	 */
 	public static function getGists(user:String):Dynamic {
-		return Request.easyparse('users/$user/gists');
+		var api = new GithubAPI();
+		api.request('users/$user/gists');
+		return api.json;
 	}
 
 	/**
@@ -48,6 +59,8 @@ class User {
 	 * @param user 
 	 */
 	public static function getStarred(user:String):Dynamic {
-		return Request.easyparse('users/$user/starred');
+		var api = new GithubAPI();
+		api.request('users/$user/starred');
+		return api.json;
 	}
 }

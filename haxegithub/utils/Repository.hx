@@ -1,7 +1,8 @@
 package haxegithub.utils;
 
-import haxegithub.Request;
-
+/**
+ * Github Repository Util
+ */
 class Repository {
 	/**
 	 * Return the Repository JSON
@@ -9,7 +10,9 @@ class Repository {
 	 * @param repo 
 	 */
 	public static function get(user:String, repo:String):Dynamic {
-		return Request.easyparse('repos/$user/$repo');
+		var api = new GithubAPI();
+		api.request('repos/$user/$repo');
+		return api.json;
 	}
 
 	/**
@@ -18,6 +21,8 @@ class Repository {
 	 * @param repo 
 	 */
 	public static function getContributors(user:String, repo:String):Dynamic {
-		return Request.easyparse('repos/$user/$repo/collaborators');
+		var api = new GithubAPI();
+		api.request('repos/$user/$repo/collaborators');
+		return api.json;
 	}
 }
