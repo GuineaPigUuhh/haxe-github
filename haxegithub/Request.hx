@@ -5,11 +5,11 @@ import haxe.Json;
 
 class Request {
 	/**
-	 * easy Parse Github JSON
+	 * easy Parse for Github JSON
 	 * @param url 
 	 */
-	public static function easyparse(url:String):Dynamic {
-		var result = Json.parse(api_request(url));
+	public static function easyparse(url:String, api:Bool = true):Dynamic {
+		var result = Json.parse(api ? api_request(url) : request(url));
 		return result;
 	}
 
